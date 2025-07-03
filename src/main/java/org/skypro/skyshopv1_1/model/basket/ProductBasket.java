@@ -7,10 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @RequiredArgsConstructor
 @SessionScope
@@ -18,7 +15,7 @@ import java.util.UUID;
 public class ProductBasket {
 
 
-    private final Map<UUID, Integer> productBasket;
+    private final Map<UUID, Integer> productBasket = new HashMap<>();
 
     public void addProduct(UUID id) {
         productBasket.merge(id, 1, Integer::sum);
