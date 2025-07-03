@@ -95,4 +95,5 @@ public abstract class Product implements Searchable, Comparable<Searchable> {
     public UUID getId() {
         return this.id;
     }
+
 }
