@@ -11,7 +11,6 @@ import java.util.*;
 
 @RequiredArgsConstructor
 @SessionScope
-@Component
 public class ProductBasket {
 
 
