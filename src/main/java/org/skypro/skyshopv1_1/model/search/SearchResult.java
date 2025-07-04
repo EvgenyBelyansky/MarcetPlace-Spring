@@ -1,10 +1,11 @@
 package org.skypro.skyshopv1_1.model.search;
 
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class SearchResult {
 
     private final UUID id;
