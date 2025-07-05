@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SkyshopV11Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SkyshopV11Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SkyshopV11Application.class, args);
+    }
 
 }
