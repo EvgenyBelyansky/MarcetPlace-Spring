@@ -12,8 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 import java.util.UUID;
 
-@Component
-@AllArgsConstructor
+
 public abstract class Product implements Searchable, Comparable<Searchable> {
 
     private final UUID id;

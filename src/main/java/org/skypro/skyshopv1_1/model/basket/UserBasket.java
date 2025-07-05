@@ -11,9 +11,10 @@ public class UserBasket {
 
     public UserBasket(List<BasketItem> basketItemsList) {
         this.basketItemsList = basketItemsList;
+        this.total = calculateTotal(basketItemsList);
     }
 
-    private double calculateTotal() {
+    private double calculateTotal(List<BasketItem> basketItemsList) {
         return total = basketItemsList.stream()
                 .mapToDouble(b -> b.getProduct().getPrice() * b.getCountProduct())
                 .sum();
