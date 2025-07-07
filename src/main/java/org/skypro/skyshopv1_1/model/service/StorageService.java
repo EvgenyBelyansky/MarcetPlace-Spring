@@ -46,6 +46,6 @@ public class StorageService {
     public Product getProductById(UUID id) {
 
         return Optional.ofNullable(productMap.get(id))
-                .orElseThrow(NoSuchProductException::new);
+                .orElseThrow(() -> new NoSuchProductException(id));
     }
 }

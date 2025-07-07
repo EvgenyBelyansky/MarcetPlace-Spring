@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public class ShopError {
-    private final String code;
+    private final ShopErrorCode code;
 
     private final String message;
 }
