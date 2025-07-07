@@ -3,6 +3,7 @@ package org.skypro.skyshopv1_1.model.service;
 
 import lombok.RequiredArgsConstructor;
 import org.skypro.skyshopv1_1.model.article.Article;
+import org.skypro.skyshopv1_1.model.exceptions.NoSuchProductException;
 import org.skypro.skyshopv1_1.model.product.Product;
 import org.skypro.skyshopv1_1.model.search.Searchable;
 import org.springframework.stereotype.Service;
@@ -42,7 +43,9 @@ public class StorageService {
                 .collect(Collectors.toList());
     }
 
-    public Optional<Product> getProductById(UUID id) {
-        return Optional.ofNullable(productMap.get(id));
+    public Product getProductById(UUID id) {
+
+        return Optional.ofNullable(productMap.get(id))
+                .orElseThrow(NoSuchProductException::new);
     }
 }

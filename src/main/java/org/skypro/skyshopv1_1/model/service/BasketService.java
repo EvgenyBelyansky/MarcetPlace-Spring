@@ -4,11 +4,14 @@ import lombok.RequiredArgsConstructor;
 import org.skypro.skyshopv1_1.model.basket.BasketItem;
 import org.skypro.skyshopv1_1.model.basket.ProductBasket;
 import org.skypro.skyshopv1_1.model.basket.UserBasket;
+import org.skypro.skyshopv1_1.model.exceptions.NoSuchProductException;
 import org.skypro.skyshopv1_1.model.product.Product;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -21,8 +24,8 @@ public class BasketService {
     private final ProductBasket productBasket;
 
     public void addProductsInBasket(UUID id) {
-        if (storageService.getProductById(id).isEmpty()) {
-            throw new IllegalArgumentException();
+        if (storageService.getProductById(id) == null) {
+            throw new NoSuchProductException();
         }
 
         productBasket.addProduct(id);
@@ -33,8 +36,8 @@ public class BasketService {
 
         List<BasketItem> items = basketProducts.entrySet().stream()
                 .map(entry -> {
-                            Product product = storageService.getProductById(entry.getKey())
-                                    .orElseThrow(IllegalStateException::new);
+                            Product product = Optional.ofNullable(storageService.getProductById(entry.getKey()))
+                                    .orElseThrow(NoSuchProductException::new);
                             return new BasketItem(product, entry.getValue());
                         }
                 )
