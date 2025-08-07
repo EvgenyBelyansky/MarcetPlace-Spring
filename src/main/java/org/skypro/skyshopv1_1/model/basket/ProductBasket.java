@@ -1,9 +1,6 @@
 package org.skypro.skyshopv1_1.model.basket;
 
-import lombok.Builder;
 import lombok.RequiredArgsConstructor;
-import org.skypro.skyshopv1_1.model.service.StorageService;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 

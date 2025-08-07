@@ -8,10 +8,8 @@ import org.skypro.skyshopv1_1.model.exceptions.NoSuchProductException;
 import org.skypro.skyshopv1_1.model.product.Product;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -24,7 +22,9 @@ public class BasketService {
     private final ProductBasket productBasket;
 
     public void addProductsInBasket(UUID id) {
-        productBasket.addProduct(id);
+        Product product = storageService.getProductById(id);
+
+        productBasket.addProduct(product.getId());
     }
 
     public UserBasket getUserBasket() {

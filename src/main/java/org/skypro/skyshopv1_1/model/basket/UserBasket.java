@@ -1,8 +1,10 @@
 package org.skypro.skyshopv1_1.model.basket;
 
+import lombok.Data;
+
 import java.util.List;
 
-
+@Data
 public class UserBasket {
 
     private final List<BasketItem> basketItemsList;
