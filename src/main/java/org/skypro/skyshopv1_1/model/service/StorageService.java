@@ -1,7 +1,6 @@
 package org.skypro.skyshopv1_1.model.service;
 
 
-import lombok.RequiredArgsConstructor;
 import org.skypro.skyshopv1_1.model.article.Article;
 import org.skypro.skyshopv1_1.model.exceptions.NoSuchProductException;
 import org.skypro.skyshopv1_1.model.product.Product;

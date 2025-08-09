@@ -35,10 +35,8 @@ class SearchServiceTest {
 
         Mockito.when(storageService.getSearchables()).thenReturn(searchableList);
 
-        //test
         List<SearchResult> actual = searchService.search(searchString);
 
-        //check
         assertThat(searchableList)
                 .map(SearchResult::fromSearchable)
                 .containsExactlyInAnyOrderElementsOf(actual);
@@ -55,10 +53,8 @@ class SearchServiceTest {
 
         Mockito.when(storageService.getSearchables()).thenReturn(searchableList);
 
-        //test
         List<SearchResult> actual = searchService.search(searchString);
 
-        //check
         assertThat(actual).isEmpty();
 
         Mockito.verify(storageService, Mockito.times(1)).getSearchables();
@@ -74,10 +70,8 @@ class SearchServiceTest {
 
         Mockito.when(storageService.getSearchables()).thenReturn(searchableList);
 
-        //test
         List<SearchResult> actual = searchService.search(searchString);
 
-        //check
         assertThat(actual).isEmpty();
 
         Mockito.verify(storageService, Mockito.times(1)).getSearchables();
@@ -95,10 +89,9 @@ class SearchServiceTest {
                 .toList();
 
         Mockito.when(storageService.getSearchables()).thenReturn(searchableList3);
-        //test
+
         List<SearchResult> actual = searchService.search(searchString);
 
-        //check
         assertThat(searchableList)
                 .map(SearchResult::fromSearchable)
                 .containsExactlyInAnyOrderElementsOf(actual);
@@ -106,11 +99,3 @@ class SearchServiceTest {
         Mockito.verify(storageService, Mockito.times(1)).getSearchables();
     }
 }
-
-//public List<SearchResult> search(String searchString) {
-//
-//        return storageService.getSearchables().stream()
-//                .filter(s -> s.searchTerm().contains(searchString))
-//                .map(SearchResult::fromSearchable)
-//                .toList();
-//    }

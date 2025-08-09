@@ -12,7 +12,6 @@ public interface Searchable {
 
     UUID getId();
 
-
     default String getStringRepresentation() {
         return String.format("Имя %s - тип %s", searchTerm(), getTypeContent());
     }

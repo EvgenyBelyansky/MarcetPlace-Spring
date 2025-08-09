@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.skypro.skyshopv1_1.model.basket.BasketItem;
 import org.skypro.skyshopv1_1.model.basket.ProductBasket;
 import org.skypro.skyshopv1_1.model.basket.UserBasket;
-import org.skypro.skyshopv1_1.model.exceptions.NoSuchProductException;
 import org.skypro.skyshopv1_1.model.product.Product;
 import org.springframework.stereotype.Service;
 
